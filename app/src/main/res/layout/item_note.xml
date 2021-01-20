@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginEnd="4dp"
-    android:layout_marginBottom="4dp"
+    android:layout_marginStart="@dimen/dimen_1x"
+    android:layout_marginTop="@dimen/dimen_1x"
+    android:layout_marginEnd="@dimen/dimen_1x"
+    android:layout_marginBottom="@dimen/dimen_1x"
     tools:backgroundTint="@android:color/holo_purple">
 
     <LinearLayout
@@ -19,18 +19,17 @@
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            tools:text="Geekbrains + Kotlin forever" />
+            android:layout_marginStart="@dimen/dimen_2x"
+            android:layout_marginTop="@dimen/dimen_2x"
+            android:layout_marginEnd="@dimen/dimen_2x"
+            tools:text="@string/title_text" />
 
         <TextView
             android:id="@+id/body"
             style="@style/TextAppearance.AppCompat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            tools:text="Я Kotlin бы выучил только за то, что на нем разрабатывал
-Вортон!" />
+            android:layout_margin="@dimen/dimen_2x"
+            tools:text="@string/body_text" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

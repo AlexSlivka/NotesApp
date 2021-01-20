@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Notes App</string>
     <string name="title_notes">GeekBrains Notes</string>
     <string name="title_text">Geekbrains + Kotlin forever</string>
     <string name="body_text">Я Kotlin бы выучил только за то, что на нем разрабатывал Вортон!</string>
