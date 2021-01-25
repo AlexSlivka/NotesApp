@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dimen_1x">4dp</dimen>
-    <dimen name="dimen_2x">8dp</dimen>
+    <dimen name="margin_card_view_item_note">4dp</dimen>
+    <dimen name="margin_title_item_note">8dp</dimen>
     <dimen name="margin_floating_button">18dp</dimen>
 </resources>
