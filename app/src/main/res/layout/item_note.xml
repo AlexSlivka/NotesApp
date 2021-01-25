@@ -22,7 +22,7 @@
             android:layout_marginStart="@dimen/margin_title_item_note"
             android:layout_marginTop="@dimen/margin_title_item_note"
             android:layout_marginEnd="@dimen/margin_title_item_note"
-            tools:text="@string/title_text" />
+            tools:text="Geekbrains + Kotlin forever" />
 
         <TextView
             android:id="@+id/body"
@@ -30,6 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_title_item_note"
-            tools:text="@string/body_text" />
+            tools:text="Я Kotlin бы выучил только за то, что на нем разрабатывал Вортон!" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
