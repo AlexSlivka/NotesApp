@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.notesapp.data.Repository
 
 class MainViewModel : ViewModel() {
+
     private val viewStateLiveData: MutableLiveData<MainViewState> =
         MutableLiveData()
 

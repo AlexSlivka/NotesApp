@@ -17,13 +17,13 @@ class MainActivity : AppCompatActivity() {
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
         setSupportActionBar(ui.toolbar)
+
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         adapter = MainAdapter(object : OnItemClickListener {
             override fun onItemClick(note: Note) {
                 openNoteScreen(note)
             }
         })
-
         ui.mainRecycler.adapter = adapter
         viewModel.viewState().observe(this, Observer<MainViewState> { t ->
             t?.let { adapter.notes = it.notes }
@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openNoteScreen(note: Note?) {
+
         val intent = NoteActivity.getStartIntent(this, note)
+
         startActivity(intent)
     }
 }

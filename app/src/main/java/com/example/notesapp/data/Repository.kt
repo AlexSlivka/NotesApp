@@ -7,6 +7,7 @@ import com.example.notesapp.data.model.Note
 import java.util.*
 
 object Repository {
+
     private val notesLiveData = MutableLiveData<List<Note>>()
 
     val notes: MutableList<Note> = mutableListOf(

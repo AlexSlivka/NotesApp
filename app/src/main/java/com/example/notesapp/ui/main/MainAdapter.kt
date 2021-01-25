@@ -11,6 +11,7 @@ import com.example.notesapp.data.model.Note
 
 class MainAdapter(private val onItemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<MainAdapter.NoteViewHolder>() {
+
     var notes: List<Note> = listOf()
         set(value) {
             field = value
@@ -21,15 +22,18 @@ class MainAdapter(private val onItemClickListener: OnItemClickListener) :
             NoteViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.item_note, parent, false)
+
         return NoteViewHolder(view)
     }
 
     override fun getItemCount() = notes.size
+
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int): Unit {
         holder.bind(notes[position])
     }
 
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         private val title = itemView.findViewById<TextView>(R.id.title)
         private val body = itemView.findViewById<TextView>(R.id.body)
 

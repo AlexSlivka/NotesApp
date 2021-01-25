@@ -20,10 +20,14 @@ import java.util.*
 private const val SAVE_DELAY = 2000L
 
 class NoteActivity : AppCompatActivity() {
+
     companion object {
         const val EXTRA_NOTE = "NoteActivity.extra.NOTE"
+
         fun getStartIntent(context: Context, note: Note?): Intent {
+
             val intent = Intent(context, NoteActivity::class.java)
+
             intent.putExtra(EXTRA_NOTE, note)
             return intent
         }
@@ -56,6 +60,7 @@ class NoteActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
         note = intent.getParcelableExtra(EXTRA_NOTE)
+
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = if (note != null) {

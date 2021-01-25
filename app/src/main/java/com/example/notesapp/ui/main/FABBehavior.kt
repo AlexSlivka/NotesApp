@@ -10,6 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class FABBehavior(context: Context, attributeSet: AttributeSet) :
     FloatingActionButton.Behavior(context, attributeSet) {
+
     override fun onStartNestedScroll(
         coordinatorLayout: CoordinatorLayout,
         child: FloatingActionButton,
@@ -39,6 +40,7 @@ class FABBehavior(context: Context, attributeSet: AttributeSet) :
             coordinatorLayout, child, target,
             dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type
         )
+
         if (dyConsumed > 0 && child.visibility == View.VISIBLE) {
             child.hide(object :
                 FloatingActionButton.OnVisibilityChangedListener() {
