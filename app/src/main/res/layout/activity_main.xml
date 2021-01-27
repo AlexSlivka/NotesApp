@@ -30,5 +30,17 @@
         app:spanCount="2"
         tools:listitem="@layout/item_note" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_floating_button"
+        android:layout_marginBottom="@dimen/margin_floating_button"
+        android:src="@drawable/abc_vector_test"
+        app:fabSize="normal"
+        app:layout_anchor="@id/mainRecycler"
+        app:layout_anchorGravity="bottom|end"
+        app:layout_behavior=".ui.main.FABBehavior" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
