@@ -8,6 +8,7 @@ import com.example.notesapp.data.model.Note
 import com.example.notesapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var ui: ActivityMainBinding
     lateinit var viewModel: MainViewModel
     lateinit var adapter: MainAdapter
@@ -33,9 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openNoteScreen(note: Note?) {
-
         val intent = NoteActivity.getStartIntent(this, note)
-
         startActivity(intent)
     }
 }
