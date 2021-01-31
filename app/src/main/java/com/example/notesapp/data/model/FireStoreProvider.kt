@@ -58,8 +58,8 @@ class FireStoreProvider : RemoteDataProvider {
             }.addOnFailureListener {
                 OnFailureListener { exception ->
                     Log.d(
-                        TAG, "Error saving note $note , message:
-                        $ { exception.message } " )
+                        TAG, "Error saving note $note,message:${exception.message}"
+                    )
                     result.value = NoteResult.Error(exception)
                 }
             }

@@ -9,7 +9,6 @@ import com.example.notesapp.R
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.databinding.ActivityMainBinding
 import com.example.notesapp.ui.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
 
@@ -17,23 +16,22 @@ class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
     override val layoutRes: Int = R.layout.activity_main
+    override val ui: ActivityMainBinding by lazy {ActivityMainBinding.inflate(layoutInflater)}
 
-    //lateinit var ui: ActivityMainBinding
     private lateinit var adapter: MainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(ui.toolbar)
 
         adapter = MainAdapter(object : OnItemClickListener {
             override fun onItemClick(note: Note) {
                 openNoteScreen(note)
             }
         })
-        mainRecycler.adapter = adapter
+        ui.mainRecycler.adapter = adapter
 
-        fab.setOnClickListener { openNoteScreen(null) }
-
+        ui.fab.setOnClickListener { openNoteScreen(null) }
     }
 
     override fun renderData(data: List<Note>?) {
@@ -43,6 +41,7 @@ class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
 
     private fun openNoteScreen(note: Note?) {
         val intent = NoteActivity.getStartIntent(this, note?.id)
+
         startActivity(intent)
     }
 }

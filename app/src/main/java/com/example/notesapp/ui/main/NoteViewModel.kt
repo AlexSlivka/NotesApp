@@ -1,7 +1,6 @@
 package com.example.notesapp.ui.main
 
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import com.example.notesapp.data.Repository
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.data.model.NoteResult

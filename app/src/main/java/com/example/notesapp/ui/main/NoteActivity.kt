@@ -8,14 +8,12 @@ import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.notesapp.R
 import com.example.notesapp.data.model.Color
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.databinding.ActivityNoteBinding
 import com.example.notesapp.ui.base.BaseActivity
-import java.text.SimpleDateFormat
 import java.util.*
 
 private const val SAVE_DELAY = 2000L
@@ -35,9 +33,9 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
 
     override val viewModel: NoteViewModel by lazy { ViewModelProvider(this).get(NoteViewModel::class.java) }
     override val layoutRes: Int = R.layout.activity_note
+    override val ui: ActivityNoteBinding by lazy { ActivityNoteBinding.inflate(layoutInflater) }
 
     private var note: Note? = null
-    private lateinit var ui: ActivityNoteBinding
     private val textChangeListener = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
             triggerSaveNote()
@@ -56,16 +54,19 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ui = ActivityNoteBinding.inflate(layoutInflater)
+        setSupportActionBar(ui.toolbar)
 
         val noteId = intent.getStringExtra(EXTRA_NOTE)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         noteId?.let {
             viewModel.loadNote(it)
         }
 
         if (noteId == null) supportActionBar?.title = getString(R.string.new_note_title)
 
-        initView()
+        ui.titleEt.addTextChangedListener(textChangeListener)
+        ui.bodyEt.addTextChangedListener(textChangeListener)
     }
 
     private fun initView() {
