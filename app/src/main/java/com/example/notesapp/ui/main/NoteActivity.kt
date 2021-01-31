@@ -61,30 +61,23 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
 
         noteId?.let {
             viewModel.loadNote(it)
+        } ?: run {
+            supportActionBar?.title = getString(R.string.new_note_title)
         }
-
-        if (noteId == null) supportActionBar?.title = getString(R.string.new_note_title)
 
         ui.titleEt.addTextChangedListener(textChangeListener)
         ui.bodyEt.addTextChangedListener(textChangeListener)
     }
 
     private fun initView() {
-        ui.titleEt.setText(note?.title ?: "")
-        ui.bodyEt.setText(note?.note ?: "")
+        note?.run {
+            ui.toolbar.setBackgroundColor(color.getColorInt(this@NoteActivity))
+            ui.titleEt.setText(title)
+            ui.bodyEt.setText(note)
 
-        val color = when (note?.color) {
-            Color.WHITE -> R.color.color_white
-            Color.VIOLET -> R.color.color_violet
-            Color.YELLOW -> R.color.color_yello
-            Color.RED -> R.color.color_red
-            Color.PINK -> R.color.color_pink
-            Color.GREEN -> R.color.color_green
-            Color.BLUE -> R.color.color_blue
-            else -> R.color.color_white
+            supportActionBar?.title = lastChanged.format()
         }
 
-        ui.toolbar.setBackgroundColor(resources.getColor(color))
         ui.titleEt.addTextChangedListener(textChangeListener)
         ui.bodyEt.addTextChangedListener(textChangeListener)
     }
