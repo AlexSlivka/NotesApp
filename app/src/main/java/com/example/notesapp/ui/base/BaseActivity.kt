@@ -27,7 +27,7 @@ abstract class BaseActivity<T, VS : BaseViewState<T>> : AppCompatActivity() {
 
     abstract fun renderData(data: T)
 
-    protected fun renderError(error: Throwable) {
+    protected open fun renderError(error: Throwable) {
         error.message?.let { showError(it) }
     }
 
