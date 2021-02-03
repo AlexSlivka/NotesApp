@@ -2,9 +2,9 @@ package com.example.notesapp.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.viewbinding.ViewBinding
 import com.example.notesapp.R
+import com.example.notesapp.viewmodel.BaseViewModel
 import com.google.android.material.snackbar.Snackbar
 
 abstract class BaseActivity<T, VS : BaseViewState<T>> : AppCompatActivity() {

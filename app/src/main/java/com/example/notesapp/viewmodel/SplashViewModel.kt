@@ -1,8 +1,8 @@
-package com.example.notesapp.ui.main
+package com.example.notesapp.viewmodel
 
 import com.example.notesapp.data.Repository
 import com.example.notesapp.data.errors.NoAuthException
-import com.example.notesapp.ui.base.BaseViewModel
+import com.example.notesapp.ui.main.SplashViewState
 
 class SplashViewModel(private val repository: Repository = Repository) :
     BaseViewModel<Boolean?, SplashViewState>() {

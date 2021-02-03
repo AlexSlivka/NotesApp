@@ -10,10 +10,10 @@ import android.text.TextWatcher
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import com.example.notesapp.R
-import com.example.notesapp.data.model.Color
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.databinding.ActivityNoteBinding
 import com.example.notesapp.ui.base.BaseActivity
+import com.example.notesapp.viewmodel.NoteViewModel
 import java.util.*
 
 private const val SAVE_DELAY = 2000L

@@ -10,7 +10,7 @@ import com.example.notesapp.R
 import com.example.notesapp.data.errors.NoAuthException
 import com.example.notesapp.databinding.ActivitySplashBinding
 import com.example.notesapp.ui.base.BaseActivity
-import com.example.notesapp.ui.main.NoteActivity.Companion.getStartIntent
+import com.example.notesapp.viewmodel.SplashViewModel
 import com.firebase.ui.auth.AuthUI
 
 private const val RC_SIGN_IN = 458
