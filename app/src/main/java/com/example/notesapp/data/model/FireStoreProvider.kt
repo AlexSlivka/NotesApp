@@ -14,7 +14,7 @@ private const val USERS_COLLECTION = "users"
 class FireStoreProvider : RemoteDataProvider {
 
     companion object {
-        private val TAG = " ${FireStoreProvider::class.java.simpleName} :"
+        private val TAG = "${FireStoreProvider::class.java.simpleName} :"
     }
 
     private val db = FirebaseFirestore.getInstance()

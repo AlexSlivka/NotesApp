@@ -114,5 +114,4 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
         this.note = data
         initView()
     }
-
 }
