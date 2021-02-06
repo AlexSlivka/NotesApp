@@ -10,13 +10,13 @@ import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.ViewModelProvider
 import com.example.notesapp.R
 import com.example.notesapp.data.model.Color
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.databinding.ActivityNoteBinding
 import com.example.notesapp.ui.base.BaseActivity
 import com.example.notesapp.viewmodel.NoteViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
 
 private const val SAVE_DELAY = 2000L
@@ -34,7 +34,7 @@ class NoteActivity : BaseActivity<NoteViewState.Data, NoteViewState>() {
         }
     }
 
-    override val viewModel: NoteViewModel by lazy { ViewModelProvider(this).get(NoteViewModel::class.java) }
+    override val viewModel: NoteViewModel by viewModel()
     override val layoutRes: Int = R.layout.activity_note
     override val ui: ActivityNoteBinding by lazy { ActivityNoteBinding.inflate(layoutInflater) }
 

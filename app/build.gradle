@@ -58,5 +58,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:18.0.2'
     implementation 'com.google.firebase:firebase-firestore:22.0.2'
     implementation 'com.firebaseui:firebase-ui-auth:7.1.1'
+    implementation 'org.koin:koin-android:2.2.0'
+    implementation 'org.koin:koin-android-viewmodel:2.2.0'
 }
 

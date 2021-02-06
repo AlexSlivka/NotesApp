@@ -1,12 +1,11 @@
 package com.example.notesapp.viewmodel
 
-import androidx.lifecycle.Observer
 import com.example.notesapp.data.Repository
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.data.model.NoteResult
 import com.example.notesapp.ui.main.NoteViewState
 
-class NoteViewModel(val repository: Repository = Repository) :
+class NoteViewModel(val repository: Repository) :
     BaseViewModel<NoteViewState.Data, NoteViewState>() {
 
     private val currentNote: Note?
