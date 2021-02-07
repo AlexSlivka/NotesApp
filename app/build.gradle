@@ -31,12 +31,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-functions:19.2.0'
     def lifecycle_version = "1.1.1"
     def support_version = "27.1.1"
 // LiveData & ViewModel
@@ -52,4 +53,9 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+    implementation 'com.google.firebase:firebase-core:18.0.1'
+    implementation 'com.google.firebase:firebase-firestore:22.0.1'
 }
+
+apply plugin: 'com.google.gms.google-services'

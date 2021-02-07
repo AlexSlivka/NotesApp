@@ -6,4 +6,5 @@
     <string name="new_note_title">New Note</string>
     <string name="title_note_text_input">Заголовок</string>
     <string name="text_note_body">Текст заметки</string>
+    <string name="ok_bth_title">Понятно</string>
 </resources>
