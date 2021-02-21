@@ -5,4 +5,12 @@
     <string name="title_note_text_input">Заголовок</string>
     <string name="text_note_body">Текст заметки</string>
     <string name="ok_bth_title">Понятно</string>
+    <string name="logout_dialog_title">Выйти из аккаунта?</string>
+    <string name="logout_dialog_message">Все ваши заметки будут сохранены. Вы сможете получить к ним доступ после авторизации.</string>
+    <string name="logout_dialog_cancel">Отмена</string>
+    <string name="logout_menu_title">Title logout</string>
+    <string name="change_color_menu_title">Color</string>
+    <string name="delete_menu_title">Delete</string>
+    <string name="delete_dialog_message">Delete?</string>
+    <string name="cancel_btn_title">Cancel</string>
 </resources>

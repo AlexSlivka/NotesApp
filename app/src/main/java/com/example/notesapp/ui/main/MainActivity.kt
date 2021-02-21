@@ -1,22 +1,24 @@
 package com.example.notesapp.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import com.example.notesapp.R
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.databinding.ActivityMainBinding
 import com.example.notesapp.ui.base.BaseActivity
+import com.example.notesapp.viewmodel.MainViewModel
+import com.firebase.ui.auth.AuthUI
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
+class MainActivity : BaseActivity<List<Note>?>(), LogoutDialog.LogoutListener {
 
-    override val viewModel: MainViewModel by lazy {
-        ViewModelProvider(this).get(MainViewModel::class.java)
-    }
+    override val viewModel: MainViewModel by viewModel()
     override val layoutRes: Int = R.layout.activity_main
-    override val ui: ActivityMainBinding by lazy {ActivityMainBinding.inflate(layoutInflater)}
+    override val ui: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     private lateinit var adapter: MainAdapter
 
@@ -43,5 +45,38 @@ class MainActivity : BaseActivity<List<Note>?, MainViewState>() {
         val intent = NoteActivity.getStartIntent(this, note?.id)
 
         startActivity(intent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean =
+        MenuInflater(this).inflate(R.menu.menu_main, menu).let { true }
+
+    override fun onLogout() {
+        AuthUI.getInstance()
+            .signOut(this)
+            .addOnCompleteListener {
+                startActivity(Intent(this, SplashActivity::class.java))
+                finish()
+            }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.logout -> showLogoutDialog().let { true }
+            else -> false
+        }
+
+    private fun showLogoutDialog() {
+        supportFragmentManager.findFragmentByTag(LogoutDialog.TAG) ?: LogoutDialog.createInstance()
+            .show(
+                supportFragmentManager,
+                LogoutDialog.TAG
+            )
+    }
+
+    companion object {
+        fun getStartIntent(context: Context) = Intent(
+            context,
+            MainActivity::class.java
+        )
     }
 }

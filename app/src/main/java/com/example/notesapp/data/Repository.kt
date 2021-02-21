@@ -1,15 +1,17 @@
 package com.example.notesapp.data
 
-import com.example.notesapp.data.model.FireStoreProvider
 import com.example.notesapp.data.model.Note
 import com.example.notesapp.data.model.RemoteDataProvider
 
-object Repository {
-    private val remoteProvider: RemoteDataProvider = FireStoreProvider()
+class Repository(private val remoteProvider: RemoteDataProvider) {
 
-    fun getNotes() = remoteProvider.subscribeToAllNotes()
+    suspend fun getNotes() = remoteProvider.subscribeToAllNotes()
 
-    fun saveNote(note: Note) = remoteProvider.saveNote(note)
+    suspend fun saveNote(note: Note) = remoteProvider.saveNote(note)
 
-    fun getNoteById(id: String) = remoteProvider.getNoteById(id)
+    suspend fun getNoteById(id: String) = remoteProvider.getNoteById(id)
+
+    suspend fun getCurrentUser() = remoteProvider.getCurrentUser()
+
+    suspend fun deleteNote(noteId: String) = remoteProvider.deleteNote(noteId)
 }

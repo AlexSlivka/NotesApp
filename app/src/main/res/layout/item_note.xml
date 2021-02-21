@@ -7,6 +7,7 @@
     android:layout_marginTop="@dimen/margin_card_view_item_note"
     android:layout_marginEnd="@dimen/margin_card_view_item_note"
     android:layout_marginBottom="@dimen/margin_card_view_item_note"
+    android:id="@+id/container"
     tools:backgroundTint="@android:color/holo_purple">
 
     <LinearLayout
