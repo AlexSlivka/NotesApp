@@ -34,8 +34,7 @@ class FireStoreProvider(
             var registration: ListenerRegistration? = null
             try {
                 registration =
-                    getUserNotesCollection().addSnapshotListener { snapshot,
-                                                                   error ->
+                    getUserNotesCollection().addSnapshotListener { snapshot, error ->
                         val value = error?.let {
                             NoteResult.Error(it)
                         } ?: snapshot?.let {
